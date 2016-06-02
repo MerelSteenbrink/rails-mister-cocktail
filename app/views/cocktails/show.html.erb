@@ -1,0 +1,24 @@
+<h1><%= @cocktail.name %></h1>
+<table>
+  <tr>
+    <th>Dose</th>
+    <th>Ingredient</th>
+  </tr>
+  <%@doses.each do |dose|%>
+  <tr>
+    <td>
+      <%= dose.description %>
+    </td>
+    <td>
+      <% if dose.ingredient.present? %>
+        <%= dose.ingredient.name %>
+      <% end %>
+    </td>
+  </tr>
+  <% end%>
+</table>
+
+
+<%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail) %>
+
+<%= link_to "Home", cocktails_path%>
