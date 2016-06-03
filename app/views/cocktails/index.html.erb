@@ -2,14 +2,19 @@
 <div class = "container padded">
 
   <div class="flex_item">
-    <%= cl_image_tag("boatest.jpg",
-    width: 400, height: 300, crop: :fill) %>
+
 
   </div>
   <div class = "flex-item">
     <table>
+
       <% @cocktails.each do |cocktail| %>
       <tr>
+        <td>
+        <% if cocktail.photo.present? %>
+          <%= cl_image_tag cocktail.photo, height: 100, crop: :fill %>
+          <% end %>
+        </td>
         <td>
           <%= cocktail.name %>
         </td>
