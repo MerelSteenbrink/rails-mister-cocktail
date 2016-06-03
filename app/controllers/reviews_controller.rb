@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Dose.create(review_params)
+    @review = Review.create(review_params)
     @cocktail = Cocktail.find(params[:cocktail_id])
     @review.cocktail = @cocktail
     @review.save!
@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
 private
 
   def review_params
-    params.require(:dose).permit(:description, :cocktail_id, :rating )
+    params.require(:review).permit(:description, :cocktail_id, :rating )
   end
 
 end

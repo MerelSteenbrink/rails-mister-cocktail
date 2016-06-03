@@ -11,6 +11,7 @@ class CocktailsController < ApplicationController
 
   def show
     @doses = @cocktail.doses
+    @reviews = @cocktail.reviews
   end
 
   def new
@@ -19,24 +20,24 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
-    if @cocktail.save!
+    if @cocktail.save
       flash[:notice] = "whuhu, that s a new cocktail!"
       redirect_to cocktail_path(@cocktail)
     else
-      flash[:alert] = "this cocktail already exists...."
-      render 'new'
-    end
-  end
+     render 'new'
+     flash[:alert] = "this cocktail already exists...."
+   end
+ end
 
 
-  def destroy
-    @cocktail.destroy
-    redirect_to cocktails_path
-  end
+ def destroy
+  @cocktail.destroy
+  redirect_to cocktails_path
+end
 
 private
 def cocktail_params
-  params.require(:cocktail).permit(:name, :ingredient_id, :dose_id, :photo, :photo_cache)
+  params.require(:cocktail).permit(:name, :ingredient_id, :dose_id, :photo, :photo_cache, :review_id)
 end
 
 
