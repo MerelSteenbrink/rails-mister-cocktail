@@ -11,6 +11,8 @@ Ingredient.create(name: "ice")
 Ingredient.create(name: "mint leaves")
 Ingredient.create(name: "strawberries")
 Ingredient.create(name: "fireballs")
+Ingredient.create(name: "Ginger")
+
 
 Cocktail.create(name:"the bikini beach")
 Cocktail.create(name:"Sleazy Elegance")

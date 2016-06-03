@@ -19,8 +19,13 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
-    @cocktail.save!
-    redirect_to cocktail_path(@cocktail)
+    if @cocktail.save!
+      flash[:notice] = "whuhu, that s a new cocktail!"
+      redirect_to cocktail_path(@cocktail)
+    else
+      flash[:alert] = "this cocktail already exists...."
+      render 'new'
+    end
   end
 
 

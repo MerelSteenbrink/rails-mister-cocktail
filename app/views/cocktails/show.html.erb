@@ -23,6 +23,7 @@
 <%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail), class:"btn btn-warning" %>
 
 <%= link_to "Home", cocktails_path , class:"btn btn-success"%>
+<%= link_to "Add a review", new_cocktail_review_path(@cocktail) , class:"btn btn-primary"%>
 
 
 <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>

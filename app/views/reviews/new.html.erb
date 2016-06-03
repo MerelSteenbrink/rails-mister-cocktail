@@ -1,0 +1,13 @@
+
+<div class="container">
+  <h1> Create a review </h1>
+
+  <div class="flex-item padded">
+    <%= simple_form_for(@review) do |f| %>
+    <%= f.input :description %>
+    <%= f.input :rating %>
+
+    <%= f.submit %>
+    <% end %>
+  </div>
+</div>d
