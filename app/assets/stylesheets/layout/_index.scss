@@ -1,3 +1,18 @@
 @import "utilities";
 @import "footer";
 @import "navbar";
+
+.container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+td, th {
+  padding: 10px;
+}
+
+h1{
+  text-align: center;
+}

@@ -1,24 +1,32 @@
 <h1>WELKCOME TO MISTER COCKTAIL</h1>
-<p>Here are the cocktails:</p>
+<div class = "container padded">
 
-<table>
-  <% @cocktails.each do |cocktail| %>
-  <tr>
-    <td>
-      <%= cocktail.name %>
-    </td>
-    <td>
-      <%= link_to "see", cocktail_path(cocktail)  %>
-    </td>
+  <div class="flex_item">
+    <%= cl_image_tag("boatest.jpg",
+    width: 400, height: 300, crop: :fill) %>
 
-    <td>
-      <%= link_to "delete", cocktail_path(cocktail),
-        method: :delete,
-        data: {confirm: "are you sure you want to delete this cocktail?"} %>
-      </td>
-    </tr>
-    <% end%>
-  </table>
+  </div>
+  <div class = "flex-item">
+    <table>
+      <% @cocktails.each do |cocktail| %>
+      <tr>
+        <td>
+          <%= cocktail.name %>
+        </td>
+        <td>
+          <%= link_to "see", cocktail_path(cocktail), class: "btn btn-primary"  %>
+        </td>
 
-  <%= link_to "create new cocktail", new_cocktail_path() %>
-
+        <td>
+          <%= link_to "delete", cocktail_path(cocktail), class: "btn btn-danger",
+          method: :delete,
+          data: {confirm: "are you sure you want to delete this cocktail?"} %>
+        </td>
+      </tr>
+      <% end%>
+    </table>
+  </div>
+  <div class= "flex-item">
+    <%= link_to "create new cocktail", new_cocktail_path(), class: "btn btn-info"%>
+  </div>
+</div>
